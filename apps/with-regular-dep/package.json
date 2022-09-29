@@ -1,0 +1,9 @@
+{
+  "name": "with-regular-dep",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@monorepo/internal-package": "workspace:*",
+    "date-fns": "^2.29.3"
+  }
+}

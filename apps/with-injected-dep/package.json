@@ -1,0 +1,14 @@
+{
+  "name": "with-injected-dep",
+  "version": "0.0.1",
+  "private": true,
+  "dependenciesMeta":{
+    "@monorepo/internal-package": {
+      "injected": true
+    }
+  },
+  "dependencies": {
+    "@monorepo/internal-package": "workspace:*",
+    "date-fns": "^2.29.3"
+  }
+}
