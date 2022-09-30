@@ -19,6 +19,22 @@ importers:
       '@monorepo/internal-package':
         injected: true
 
+  apps/with-injected-dev-dep:
+    specifiers:
+      '@monorepo/internal-dev-package': workspace:*
+      '@monorepo/internal-package': workspace:*
+      date-fns: ^2.29.3
+    dependencies:
+      '@monorepo/internal-package': file:packages/internal-package
+      date-fns: 2.29.3
+    devDependencies:
+      '@monorepo/internal-dev-package': file:packages/internal-dev-package
+    dependenciesMeta:
+      '@monorepo/internal-dev-package':
+        injected: true
+      '@monorepo/internal-package':
+        injected: true
+
   apps/with-regular-dep:
     specifiers:
       '@monorepo/internal-package': workspace:*
@@ -26,6 +42,9 @@ importers:
     dependencies:
       '@monorepo/internal-package': link:../../packages/internal-package
       date-fns: 2.29.3
+
+  packages/internal-dev-package:
+    specifiers: {}
 
   packages/internal-package:
     specifiers: {}
@@ -97,6 +116,12 @@ packages:
       turbo-windows-64: 1.5.4
       turbo-windows-arm64: 1.5.4
     dev: false
+
+  file:packages/internal-dev-package:
+    resolution: {directory: packages/internal-dev-package, type: directory}
+    name: '@monorepo/internal-dev-package'
+    version: 0.0.1
+    dev: true
 
   file:packages/internal-package:
     resolution: {directory: packages/internal-package, type: directory}
